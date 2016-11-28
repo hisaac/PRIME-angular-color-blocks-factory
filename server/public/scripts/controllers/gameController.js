@@ -1,17 +1,17 @@
-colorBlocks.controller('GameController', ['$scope', function($scope) {
+colorBlocks.controller('GameController', ['$scope', 'DataFactory', function($scope, DataFactory) {
 
 console.log('game controller running');
 
 var self = this;
-// self.colors = ['red', 'blue', 'magenta', 'green', 'pink'];
-
+self.factory = DataFactory;
+console.log(self.factory);
 // start game
 init();
 
 // resets game to the starting state
 function init() {
   self.messageText = "";
-  self.currentColor = self.colors[randomNumber(0, self.colors.length - 1)];
+  self.currentColor = self.factory[randomNumber(0, self.factory.length - 1)];
   self.colorPrompt = 'Can you find the ' + self.currentColor + ' block?'
 }
 
