@@ -3,7 +3,7 @@ colorBlocks.controller('GameController', ['$scope', function($scope) {
 console.log('game controller running');
 
 var self = this;
-self.colors = ['red', 'blue', 'magenta', 'green', 'pink'];
+// self.colors = ['red', 'blue', 'magenta', 'green', 'pink'];
 
 // start game
 init();
