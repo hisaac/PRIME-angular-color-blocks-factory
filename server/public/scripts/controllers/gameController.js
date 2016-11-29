@@ -1,32 +1,32 @@
 colorBlocks.controller('GameController', ['$scope', 'DataFactory', function($scope, DataFactory) {
 
-console.log('game controller running');
+  console.log('game controller running');
 
-var self = this;
-self.factory = DataFactory;
-console.log(self.factory);
-// start game
-init();
+  var self = this;
+  self.factory = DataFactory;
+  // start game
+  init();
 
-// resets game to the starting state
-function init() {
-  self.messageText = "";
-  self.currentColor = self.factory[randomNumber(0, self.factory.length - 1)];
-  self.colorPrompt = 'Can you find the ' + self.currentColor + ' block?'
-}
-
-// click handler for guessing colors
-self.handleInput = function(clickedColor) {
-  if(clickedColor === self.currentColor) {
-    alert('You got it!\n\nNow try another!');
-    init();
-  } else {
-    self.messageText = 'Oh no! You guessed wrong!';
+  // resets game to the starting state
+  function init() {
+    self.messageText = "";
+    self.currentColor = self.factory.colors[randomNumber(0, self.factory.colors.length - 1)];
+    self.colorPrompt = 'Can you find the ' + self.currentColor + ' block?'
   }
-}
 
-//UTILITY FUNCTIONS
-function randomNumber(min, max){
+  // click handler for guessing colors
+  self.handleInput = function(clickedColor) {
+    if(clickedColor === self.currentColor) {
+      alert('You got it!\n\nNow try another!');
+      init();
+    } else {
+      self.messageText = 'Oh no! You guessed wrong!';
+    }
+  }
+
+  //UTILITY FUNCTIONS
+  function randomNumber(min, max){
     return Math.floor(Math.random() * (1 + max - min) + min);
-}
+  }
+  
 }]);

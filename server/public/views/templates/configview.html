@@ -1,5 +1,10 @@
 <div class="row">
   <h1>Settings</h1>
 
-  To Do: UI to add colors to the game.
+  <p>Click on any colors below you would like to add to the game</p>
+
+  <div id="button-container">
+    <div class="color-button" ng-repeat="color in settings.factory.validColors" ng-style="{background: color}" ng-click="settings.handleInput(color)"></div>
+  </div>
+
 </div>
